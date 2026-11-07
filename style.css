@@ -1,359 +1,347 @@
 
-/* =====================================
-   1. GLOBAL SETTINGS
-===================================== */
+/* =========================
+   GENERAL
+========================= */
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-:root {
-    --primary: #6c35e8;
-    --secondary: #ff4f9a;
-    --accent: #ffb703;
-    --background: #f5f2ff;
-    --surface: #ffffff;
-    --text: #211b38;
-    --muted: #77718c;
-    --shadow: 0 15px 40px rgba(65, 38, 120, 0.12);
+    scroll-behavior: smooth;
 }
 
 body {
-    font-family: 'Segoe UI', Arial, sans-serif;
-    background: var(--background);
-    color: var(--text);
-    transition: 0.4s ease;
-    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background-color: #2a2626;
+    color: #222222;
+    line-height: 1.6;
 }
 
-/* =====================================
-   2. HEADER
-===================================== */
+section {
+    padding: 90px 10%;
+}
+
+h2 {
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #111111;
+}
+
+/* =========================
+   HEADER / NAVBAR
+========================= */
 
 header {
     width: 100%;
-    min-height: 85px;
-    padding: 18px 8%;
+    background-color: #1c1a1a;
+    padding: 20px 10%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(224, 207, 207, 0.882);
+}
+
+.navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: var(--surface);
-    box-shadow: 0 5px 25px rgba(0,0,0,0.06);
-    position: sticky;
-    top: 0;
-    z-index: 100;
 }
 
-header h1 {
-    font-size: 30px;
-    font-weight: 900;
-    letter-spacing: 2px;
-    background: linear-gradient(90deg, #6935e8, #ff4f9a);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #3568c6;
 }
 
-#theme-toggle {
-    padding: 13px 23px;
-    border: none;
-    border-radius: 30px;
-    background: linear-gradient(120deg, #6935e8, #ff4f9a);
-    color: white;
-    font-weight: 700;
+.logo span {
+    color: #e30909;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #224acd;
     font-size: 14px;
-    cursor: pointer;
-    transition: 0.3s;
-    box-shadow: 0 7px 18px rgba(108,53,232,0.25);
+    transition: color 0.3s ease;
 }
 
-#theme-toggle:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(255,79,154,0.4);
+.nav-links a:hover {
+    color: #888888;
 }
 
-/* =====================================
-   3. HERO SECTION
-===================================== */
+/* =========================
+   HERO SECTION
+========================= */
 
 .hero {
-    min-height: 310px;
-    padding: 80px 20px;
+    min-height: 100vh;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    background:
-        radial-gradient(circle at 15% 20%, #ffc7e0 0, transparent 30%),
-        radial-gradient(circle at 85% 80%, #c9b7ff 0, transparent 35%),
-        linear-gradient(135deg, #fff0f7, #eee8ff);
+    background-color: #f5f5f5;
+    padding: 120px 24px;
 }
 
-.hero h2 {
+.hero-content {
     max-width: 750px;
-    font-size: clamp(34px, 5vw, 55px);
-    line-height: 1.15;
-    font-weight: 900;
+}
+
+.welcome {
+    color: #777777;
+    letter-spacing: 3px;
+    font-size: 12px;
     margin-bottom: 20px;
-    background: linear-gradient(90deg, #6230df, #f23d91, #ff9e32);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: titleAppear 1s ease;
 }
 
-.hero p {
-    max-width: 550px;
-    color: #77718c;
-    font-size: 17px;
-    line-height: 1.8;
-}
-
-/* =====================================
-   4. PRODUCT GALLERY
-===================================== */
-
-.products {
-    width: min(1200px, 90%);
-    margin: 0 auto;
-    padding: 65px 0 90px;
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 35px;
-    align-items: stretch;
-}
-
-/* PRODUCT CARDS */
-
-.product-card {
-    min-width: 0;
-    padding: 18px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    background: var(--surface);
-    border-radius: 25px;
-    box-shadow: var(--shadow);
-    border: 2px solid transparent;
-    transition: transform 0.4s ease,
-                box-shadow 0.4s ease,
-                border-color 0.4s ease;
-    overflow: hidden;
-}
-
-.product-card:nth-child(1) {
-    border-bottom: 5px solid #8b5cf6;
-}
-
-.product-card:nth-child(2) {
-    border-bottom: 5px solid #ff4f9a;
-}
-
-.product-card:nth-child(3) {
-    border-bottom: 5px solid #ffb703;
-}
-
-.product-card:hover {
-    transform: translateY(-12px);
-    box-shadow: 0 25px 50px rgba(80,40,150,0.2);
-    border-color: rgba(108,53,232,0.2);
-}
-
-/* PRODUCT IMAGES */
-
-.product-card img {
-    width: 100%;
-    height: 230px;
-    object-fit: cover;
-    border-radius: 17px;
-    transition: transform 0.5s ease;
-}
-
-.product-card:hover img {
-    transform: scale(1.05);
-}
-
-/* PRODUCT TEXT */
-
-.product-card h3 {
-    min-height: 55px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 21px;
-    font-weight: 800;
-    margin-top: 15px;
-}
-
-.product-card p {
-    min-height: 65px;
-    color: var(--muted);
-    font-size: 14px;
-    line-height: 1.7;
+.hero h1 {
+    font-size: 48px;
+    line-height: 1.2;
     margin-bottom: 15px;
 }
 
-.product-card span {
+.hero h1 span {
     display: block;
-    color: var(--primary);
-    font-size: 27px;
-    font-weight: 900;
-    margin: 5px 0 20px;
+    color: #777777;
 }
 
-/* PRODUCT BUTTON */
+.hero h2 {
+    font-size: 22px;
+    font-weight: normal;
+    margin-bottom: 20px;
+}
 
-.product-card button {
-    width: 85%;
-    max-width: 220px;
-    margin-top: auto;
-    padding: 14px 20px;
-    border: none;
-    border-radius: 30px;
-    background: linear-gradient(120deg, #6935e8, #ff4f9a);
-    color: white;
-    font-weight: 800;
+.hero p {
+    color: #666666;
+    font-size: 16px;
+    margin-bottom: 32px;
+    line-height: 1.7;
+}
+
+/* BUTTON */
+
+.btn {
+    display: inline-block;
+    background-color: #2b5ed4;
+    color: #161515;
+    padding: 14px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* =========================
+   ABOUT
+========================= */
+
+.about {
+    text-align: center;
+    background-color: #ffffff;
+}
+
+.about p {
+    max-width: 750px;
+    margin: auto;
+    color: #666666;
+    font-size: 16px;
+}
+
+/* =========================
+   SKILLS
+========================= */
+
+.skills {
+    background-color: #f5f5f5;
+    text-align: center;
+}
+
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.skill-card {
+    background-color: #ffffff;
+    padding: 30px 20px;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.skill-card:hover {
+    transform: translateY(-8px);
+}
+
+.skill-card h3 {
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.skill-card p {
+    color: #777777;
     font-size: 14px;
-    cursor: pointer;
-    transition: 0.3s;
 }
 
-.product-card button:hover {
-    transform: scale(1.06);
-    background: linear-gradient(120deg, #ff4f9a, #ff9e32);
-    box-shadow: 0 8px 20px rgba(255,79,154,0.3);
+/* =========================
+   PROJECTS
+========================= */
+
+.projects {
+    text-align: center;
+    background-color: #ffffff;
 }
 
-/* =====================================
-   5. FADE IN ANIMATION
-===================================== */
-
-.fade-in {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 0.8s ease,
-                transform 0.8s ease;
+.projects-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
 }
 
-.fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
+.project-card {
+    padding: 35px 20px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
 }
 
-/* =====================================
-   6. FOOTER
-===================================== */
+.project-card:hover {
+    transform: translateY(-8px);
+}
+
+.project-card h3 {
+    margin-bottom: 12px;
+}
+
+.project-card p {
+    color: #666666;
+    font-size: 14px;
+}
+
+/* =========================
+   EDUCATION
+========================= */
+
+.education {
+    background-color: #f5f5f5;
+    text-align: center;
+}
+
+.education-content {
+    max-width: 600px;
+    margin: auto;
+    background-color: #1b1717;
+    padding: 35px;
+    border-radius: 8px;
+}
+
+.education-content h3 {
+    margin-bottom: 12px;
+}
+
+.education-content p {
+    color: #666666;
+}
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact {
+    text-align: center;
+    background-color: #272323;
+}
+
+.contact p {
+    color: #666666;
+    margin-bottom: 12px;
+}
+
+/* =========================
+   FOOTER
+========================= */
 
 footer {
-    min-height: 100px;
-    padding: 30px 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background-color: #111111;
+    color: #ffffff;
     text-align: center;
-    color: white;
-    background: linear-gradient(120deg, #38206d, #722bc4, #bd347e);
+    padding: 25px;
     font-size: 14px;
 }
 
-/* =====================================
-   7. DARK MODE
-===================================== */
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
 
-body.dark {
-    --background: #100d20;
-    --surface: #211a36;
-    --text: #ffffff;
-    --muted: #c4bad8;
-    --primary: #b18aff;
-    --shadow: 0 15px 40px rgba(0,0,0,0.3);
-}
+@media screen and (max-width: 900px) {
 
-body.dark header {
-    background: #1a142b;
-}
-
-body.dark .hero {
-    background:
-        radial-gradient(circle at 15% 20%, #48245b, transparent 35%),
-        radial-gradient(circle at 85% 80%, #292d65, transparent 35%),
-        #171128;
-}
-
-body.dark .hero p {
-    color: #d0c4e8;
-}
-
-body.dark .product-card {
-    border-color: rgba(255,255,255,0.08);
-}
-
-body.dark .product-card span {
-    color: #c4a5ff;
-}
-
-body.dark footer {
-    background: linear-gradient(120deg, #100d20, #35205d, #67244d);
-}
-
-/* =====================================
-   8. KEYFRAMES
-===================================== */
-
-@keyframes titleAppear {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
+    .skills-container {
+        grid-template-columns: repeat(2, 1fr);
     }
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
+    .projects-container {
+        grid-template-columns: repeat(2, 1fr);
     }
+
+    .nav-links {
+        gap: 15px;
+    }
+
 }
 
-/* =====================================
-   9. RESPONSIVE DESIGN
-===================================== */
+@media screen and (max-width: 600px) {
 
-@media (max-width: 900px) {
-    .products {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 25px;
-    }
-}
-
-@media (max-width: 600px) {
     header {
         padding: 15px 5%;
-        min-height: 75px;
     }
 
-    header h1 {
-        font-size: 23px;
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
     }
 
-    #theme-toggle {
-        padding: 11px 15px;
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .nav-links a {
         font-size: 12px;
     }
 
-    .hero {
-        min-height: 250px;
-        padding: 60px 20px;
+    .hero h1 {
+        font-size: 34px;
     }
 
-    .products {
-        width: 88%;
+    .hero h2 {
+        font-size: 18px;
+    }
+
+    .skills-container,
+    .projects-container {
         grid-template-columns: 1fr;
-        gap: 25px;
-        padding: 40px 0 60px;
     }
 
-    .product-card img {
-        height: 250px;
+    section {
+        padding: 70px 6%;
     }
+
+    h2 {
+        font-size: 27px;
+    }
+
 }
-

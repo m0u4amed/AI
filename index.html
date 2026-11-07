@@ -4,55 +4,159 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MN Store - Product Gallery</title>
+    <title>MN | Mouhamed Niang - Portfolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
+    <!-- HEADER -->
     <header>
-        <h1>MN STORE</h1>
-       
+        <nav class="navbar">
+            <a href="#accueil" class="logo">MN<span>.</span></a>
+
+            <ul class="nav-links">
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#apropos">À propos</a></li>
+                <li><a href="#competences">Compétences</a></li>
+                <li><a href="#projets">Projets</a></li>
+                <li><a href="#formation">Formation</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <main>
-        <section class="hero">
-            <h2>Discover Our Products</h2>
-            <p>Find the best products at the best prices.</p>
-        </section>
+    <!-- HERO / ACCUEIL -->
+    <section class="hero" id="accueil">
 
-        <section class="products">
+        <div class="hero-content">
+            <p class="welcome">BIENVENUE SUR MON PORTFOLIO</p>
 
-            <div class="product-card fade-in">
-                <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600" alt="Headphones">
-                <h3>Wireless Headphones</h3>
-                <p>High-quality sound and modern design.</p>
-                <span>$79.99</span>
-                <button>Buy Now</button>
+            <h1>
+                Bonjour, je suis
+                <span>Mouhamed Niang</span>
+            </h1>
+
+            <h2>Aspiring Frontend Developer</h2>
+
+            <p>
+                Passionné par le développement web,
+                j'apprends à créer des sites modernes,
+                élégants et responsives.
+            </p>
+
+            <a href="#projets" class="btn">
+                View My Projects
+            </a>
+        </div>
+
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about" id="apropos">
+
+        <h2>À propos de moi</h2>
+
+        <p>
+            Je suis Mouhamed Niang, un passionné de technologie
+            et de développement web. Mon objectif est de devenir
+            un développeur frontend compétent capable de créer
+            des expériences web modernes et accessibles.
+        </p>
+
+    </section>
+
+    <!-- SKILLS -->
+    <section class="skills" id="competences">
+
+        <h2>Mes compétences</h2>
+
+        <div class="skills-container">
+
+            <div class="skill-card">
+                <h3>HTML</h3>
+                <p>Structure des pages web.</p>
             </div>
 
-            <div class="product-card fade-in">
-                <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600" alt="Watch">
-                <h3>Smart Watch</h3>
-                <p>Stay connected and track your activities.</p>
-                <span>$99.99</span>
-                <button>Buy Now</button>
+            <div class="skill-card">
+                <h3>CSS</h3>
+                <p>Design et mise en page.</p>
             </div>
 
-            <div class="product-card fade-in">
-                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600" alt="Sneakers">
-                <h3>Sport Sneakers</h3>
-                <p>Comfortable shoes for everyday adventures.</p>
-                <span>$59.99</span>
-                <button>Buy Now</button>
+            <div class="skill-card">
+                <h3>JavaScript</h3>
+                <p>Interactions et fonctionnalités.</p>
             </div>
 
-        </section>
-    </main>
+            <div class="skill-card">
+                <h3>Bootstrap</h3>
+                <p>Création de sites responsives.</p>
+            </div>
 
+        </div>
+
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="projects" id="projets">
+
+        <h2>Mes projets</h2>
+
+        <div class="projects-container">
+
+            <div class="project-card">
+                <h3>Site vitrine</h3>
+                <p>Un site web moderne pour présenter une activité.</p>
+            </div>
+
+            <div class="project-card">
+                <h3>Boutique en ligne</h3>
+                <p>Une interface pour présenter des produits.</p>
+            </div>
+
+            <div class="project-card">
+                <h3>Portfolio personnel</h3>
+                <p>Un espace pour présenter mes compétences et réalisations.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="education" id="formation">
+
+        <h2>Ma formation</h2>
+
+        <div class="education-content">
+            <h3>Formation en développement web</h3>
+            <p>
+                Apprentissage du HTML, CSS, JavaScript
+                et des technologies frontend.
+            </p>
+        </div>
+
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+
+        <h2>Me contacter</h2>
+
+        <p>Vous avez un projet ou une idée ? Contactez-moi.</p>
+
+        <p>Email : mouhamed@example.com</p>
+
+        <p>Localisation : Sénégal</p>
+
+    </section>
+
+    <!-- FOOTER -->
     <footer>
-        <p>© 2026 MN STORE - All Rights Reserved</p>
+        <p>
+            © 2026 Mouhamed Niang. Tous droits réservés.
+        </p>
     </footer>
 
-    <script src="script.js"></script>
 </body>
 </html>
