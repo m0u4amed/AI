@@ -1,0 +1,359 @@
+
+/* =====================================
+   1. GLOBAL SETTINGS
+===================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #6c35e8;
+    --secondary: #ff4f9a;
+    --accent: #ffb703;
+    --background: #f5f2ff;
+    --surface: #ffffff;
+    --text: #211b38;
+    --muted: #77718c;
+    --shadow: 0 15px 40px rgba(65, 38, 120, 0.12);
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    transition: 0.4s ease;
+    min-height: 100vh;
+}
+
+/* =====================================
+   2. HEADER
+===================================== */
+
+header {
+    width: 100%;
+    min-height: 85px;
+    padding: 18px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--surface);
+    box-shadow: 0 5px 25px rgba(0,0,0,0.06);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header h1 {
+    font-size: 30px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    background: linear-gradient(90deg, #6935e8, #ff4f9a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#theme-toggle {
+    padding: 13px 23px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(120deg, #6935e8, #ff4f9a);
+    color: white;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 7px 18px rgba(108,53,232,0.25);
+}
+
+#theme-toggle:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(255,79,154,0.4);
+}
+
+/* =====================================
+   3. HERO SECTION
+===================================== */
+
+.hero {
+    min-height: 310px;
+    padding: 80px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background:
+        radial-gradient(circle at 15% 20%, #ffc7e0 0, transparent 30%),
+        radial-gradient(circle at 85% 80%, #c9b7ff 0, transparent 35%),
+        linear-gradient(135deg, #fff0f7, #eee8ff);
+}
+
+.hero h2 {
+    max-width: 750px;
+    font-size: clamp(34px, 5vw, 55px);
+    line-height: 1.15;
+    font-weight: 900;
+    margin-bottom: 20px;
+    background: linear-gradient(90deg, #6230df, #f23d91, #ff9e32);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: titleAppear 1s ease;
+}
+
+.hero p {
+    max-width: 550px;
+    color: #77718c;
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+/* =====================================
+   4. PRODUCT GALLERY
+===================================== */
+
+.products {
+    width: min(1200px, 90%);
+    margin: 0 auto;
+    padding: 65px 0 90px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 35px;
+    align-items: stretch;
+}
+
+/* PRODUCT CARDS */
+
+.product-card {
+    min-width: 0;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: var(--surface);
+    border-radius: 25px;
+    box-shadow: var(--shadow);
+    border: 2px solid transparent;
+    transition: transform 0.4s ease,
+                box-shadow 0.4s ease,
+                border-color 0.4s ease;
+    overflow: hidden;
+}
+
+.product-card:nth-child(1) {
+    border-bottom: 5px solid #8b5cf6;
+}
+
+.product-card:nth-child(2) {
+    border-bottom: 5px solid #ff4f9a;
+}
+
+.product-card:nth-child(3) {
+    border-bottom: 5px solid #ffb703;
+}
+
+.product-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 25px 50px rgba(80,40,150,0.2);
+    border-color: rgba(108,53,232,0.2);
+}
+
+/* PRODUCT IMAGES */
+
+.product-card img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    border-radius: 17px;
+    transition: transform 0.5s ease;
+}
+
+.product-card:hover img {
+    transform: scale(1.05);
+}
+
+/* PRODUCT TEXT */
+
+.product-card h3 {
+    min-height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 21px;
+    font-weight: 800;
+    margin-top: 15px;
+}
+
+.product-card p {
+    min-height: 65px;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+.product-card span {
+    display: block;
+    color: var(--primary);
+    font-size: 27px;
+    font-weight: 900;
+    margin: 5px 0 20px;
+}
+
+/* PRODUCT BUTTON */
+
+.product-card button {
+    width: 85%;
+    max-width: 220px;
+    margin-top: auto;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(120deg, #6935e8, #ff4f9a);
+    color: white;
+    font-weight: 800;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.product-card button:hover {
+    transform: scale(1.06);
+    background: linear-gradient(120deg, #ff4f9a, #ff9e32);
+    box-shadow: 0 8px 20px rgba(255,79,154,0.3);
+}
+
+/* =====================================
+   5. FADE IN ANIMATION
+===================================== */
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease,
+                transform 0.8s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =====================================
+   6. FOOTER
+===================================== */
+
+footer {
+    min-height: 100px;
+    padding: 30px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    background: linear-gradient(120deg, #38206d, #722bc4, #bd347e);
+    font-size: 14px;
+}
+
+/* =====================================
+   7. DARK MODE
+===================================== */
+
+body.dark {
+    --background: #100d20;
+    --surface: #211a36;
+    --text: #ffffff;
+    --muted: #c4bad8;
+    --primary: #b18aff;
+    --shadow: 0 15px 40px rgba(0,0,0,0.3);
+}
+
+body.dark header {
+    background: #1a142b;
+}
+
+body.dark .hero {
+    background:
+        radial-gradient(circle at 15% 20%, #48245b, transparent 35%),
+        radial-gradient(circle at 85% 80%, #292d65, transparent 35%),
+        #171128;
+}
+
+body.dark .hero p {
+    color: #d0c4e8;
+}
+
+body.dark .product-card {
+    border-color: rgba(255,255,255,0.08);
+}
+
+body.dark .product-card span {
+    color: #c4a5ff;
+}
+
+body.dark footer {
+    background: linear-gradient(120deg, #100d20, #35205d, #67244d);
+}
+
+/* =====================================
+   8. KEYFRAMES
+===================================== */
+
+@keyframes titleAppear {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =====================================
+   9. RESPONSIVE DESIGN
+===================================== */
+
+@media (max-width: 900px) {
+    .products {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 25px;
+    }
+}
+
+@media (max-width: 600px) {
+    header {
+        padding: 15px 5%;
+        min-height: 75px;
+    }
+
+    header h1 {
+        font-size: 23px;
+    }
+
+    #theme-toggle {
+        padding: 11px 15px;
+        font-size: 12px;
+    }
+
+    .hero {
+        min-height: 250px;
+        padding: 60px 20px;
+    }
+
+    .products {
+        width: 88%;
+        grid-template-columns: 1fr;
+        gap: 25px;
+        padding: 40px 0 60px;
+    }
+
+    .product-card img {
+        height: 250px;
+    }
+}
+
